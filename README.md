@@ -1,46 +1,62 @@
-# LeetQuite: Code Peacefully
+<p align="center">
+  <img src="icons/icon.png" alt="App Icon" width="150"/>
+</p>
 
-LeetQuite is a simple browser extension for LeetCode. It helps you avoid looking at solutions and problem difficulty, so you can try to solve problems on your own first.
+<h1 align="center">LeetQuite: Code Peacefully</h1>
+
+<br>
+
+**LeetQuite** is a lightweight browser extension for LeetCode that helps you stay focused by hiding spoilers like solutions and difficulty levels — encouraging you to think independently before seeking help.
 
 
 ## What does it do?
 
-- **Hides the Solutions and Editorial tabs** on LeetCode problem pages. This means you won't see the answers or hints right away.
-- **Hides the difficulty label** (Easy, Medium, Hard) and shows a short motivational message instead.
-- **Stops you from opening solutions or editorials directly.** If you try to go to those pages, it will send you back to the problem description and show a message.
+- **Hides the Solutions and Editorial tabs** on LeetCode problem pages. No more temptation to peek.
+- **Conceals the difficulty label** (Easy, Medium, Hard) and replaces it with a motivational message.
+- **Blocks direct access** to the solutions/editorials pages. If you try, it redirects you back with a warning.
 
 
-## How to install
 
-1. Download or clone this project to your computer.
+<img width="400" height="200" alt="Before" src="https://github.com/user-attachments/assets/3571a21d-c963-4ac0-86c4-b0f1bc548e04" />
+<img width="400" height="200" alt="After" src="https://github.com/user-attachments/assets/0d711d28-6cff-48bd-89fc-5ab83300a005" />
+
+## Installation
+
+1. Download or clone this repo.
 2. Open Chrome (or any Chromium-based browser).
-3. Go to `chrome://extensions/` in the address bar.
-4. Turn on "Developer mode" (top right corner).
-5. Click "Load unpacked" and select the folder where you saved this project.
-6. The extension should now be active when you visit LeetCode problem pages.
+3. Go to `chrome://extensions/` in your address bar.
+4. Enable **Developer mode**.
+5. Click **Load unpacked** and select the folder containing this project.
+6. That’s it! The extension is now active on LeetCode problem pages.
+
+You can also drag and drop the folder directly into the extensions page.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a98ae029-59c3-4809-8a54-a5fcca712edf" alt="LeetQuite Installation" width="500"/>
+</p>
 
 
-## How it works
+## How It Works
 
-- The extension runs a script on every LeetCode problem page.
-- Every 200 milliseconds, it checks for the Solutions and Editorial tabs and hides them if they are there.
-- It also looks for the difficulty label and replaces it with a motivational message.
-- If you try to visit a solutions or editorial page directly, it will automatically send you back to the problem description and show a warning.
-
-
-## Permissions
-
-- The extension needs permission to run scripts on LeetCode problem pages. It does not collect or send any data.
+- Injects a script into LeetCode problem pages.
+- After every 200 milliseconds, it checks for:
+  - The **Solutions** and **Editorial** tabs and hides them.
+  - The **difficulty label** and replaces it with a motivational message.
+- If you visit a solutions/editorial page directly, it:
+  - Automatically redirects you to the problem description.
+  - Displays a short warning message.
 
 
-## Icon
+## Permissions Required
 
-- The extension uses the icon found at `icons/icon.png` (128x128).
+LeetQuite only needs access to LeetCode problem pages.  
+It **does not collect or transmit any data.**
 
 
 ## Contributing
 
-If you have ideas or want to help improve this extension, feel free to open an issue or make a pull request.
+Got an idea? Found a bug? Want to improve the extension?  
+Feel free to open an issue or submit a pull request... All contributions are welcome!
 
 
-**Good luck, and try to solve problems on your own!**
+<h3 align="center"><strong><em>Code with focus. Solve with clarity.</em></strong></h3>
