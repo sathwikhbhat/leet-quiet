@@ -32,7 +32,7 @@
 You can also drag and drop the folder directly into the extensions page.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a98ae029-59c3-4809-8a54-a5fcca712edf" alt="LeetQuite Installation" width="500"/>
+  <img src="https://github.com/user-attachments/assets/786c30d7-72db-4997-9b0a-376ae86890f3" alt="LeetQuite Installation" width="500"/>
 </p>
 
 
