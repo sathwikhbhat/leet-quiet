@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "LeetQuite: Code Peacefully",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Hide the Solutions Tab and the Question Difficulty level in LeetCode to avoid temptation and boost problem-solving discipline.",
     "permissions": [
         "scripting"

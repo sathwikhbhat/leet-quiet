@@ -1,4 +1,5 @@
-const intervalId = setInterval(() => {
+function hideDistractions() {
+
     const solutionsTab = document.getElementById("solutions_tab")?.parentElement?.parentElement;
     const editorialTab = document.getElementById("editorial_tab")?.parentElement?.parentElement;
 
@@ -13,7 +14,7 @@ const intervalId = setInterval(() => {
     }
 
     document.querySelectorAll(".flex.gap-1").forEach(element => {
-        if (element.textContent.includes("Easy") || element.textContent.includes("Medium") || element.textContent.includes("Hard")) {
+        if ((element.textContent.includes("Easy") || element.textContent.includes("Medium") || element.textContent.includes("Hard")) && !element.innerHTML.includes("Your Brain > The Solution Tab")) {
             console.log("[INFO] Difficulty label found. Replacing with Motivational Quote.");
             element.innerHTML = `<div
                                     class="relative inline-flex items-center justify-center text-caption px-2 py-1 gap-1 rounded-full bg-fill-secondary cursor-pointer transition-colors
@@ -27,16 +28,42 @@ const intervalId = setInterval(() => {
     });
 
     if (window.location.pathname.includes("/solutions/")) {
+        window.location.href = window.location.pathname.replace("/solutions/", "/description/");
         console.log("[WARNING] User attempted to access a solutions page.");
         console.log("[ACTION] Redirecting user from solutions to description page.");
-        window.location.href = window.location.pathname.replace("/solutions/", "/description/");
         alert("No peeking at solutions! Redirecting you to the description...");
     }
     if (window.location.pathname.includes("/editorial/")) {
+        window.location.href = window.location.pathname.replace("/editorial/", "/description/");
         console.log("[WARNING] User attempted to access an editorial page.");
         console.log("[ACTION] Redirecting user from editorial to description page.");
-        window.location.href = window.location.pathname.replace("/editorial/", "/description/");
         alert("No peeking at editorials! Redirecting you to the description...");
     }
 
-}, 200);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    hideDistractions();
+
+    const observer = new MutationObserver(() => {
+        hideDistractions();
+    });
+
+    if (document.body) {
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    } else {
+        console.error("document.body is not available for MutationObserver. This should not happen after DOMContentLoaded.");
+    }
+
+    const interval = setInterval(() => {
+        hideDistractions();
+        if (document.readyState === "complete") {
+            clearInterval(interval);
+            console.log("[INFO] Document is complete. Stopping distraction removal loop.");
+        }
+    }, 1);
+
+});
