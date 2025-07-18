@@ -4,9 +4,19 @@
 
 <h1 align="center">LeetQuite: Code Peacefully</h1>
 
+<p align="center">
+  <a href="https://github.com/sathwikhbhat/leet-quite/releases">
+    <img src="https://img.shields.io/badge/version-1.1.0-blue.svg" alt="Version Badge"/>
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/sathwikhbhat/leet-quite/issues">
+    <img src="https://img.shields.io/github/issues/sathwikhbhat/leet-quite" alt="GitHub Issues Badge"/>
+  </a>
+</p>
+
 <br>
 
-**LeetQuite** is a lightweight browser extension for LeetCode that helps you stay focused by hiding spoilers like solutions and difficulty levels — encouraging you to think independently before seeking help.
+**LeetQuite** is a lightweight browser extension for LeetCode that helps you stay focused by hiding spoilers like solutions and difficulty levels, encouraging you to think independently before seeking help.
 
 
 ## What does it do?
@@ -20,14 +30,17 @@
 <img width="400" height="200" alt="Before" src="https://github.com/user-attachments/assets/3571a21d-c963-4ac0-86c4-b0f1bc548e04" />
 <img width="400" height="200" alt="After" src="https://github.com/user-attachments/assets/0d711d28-6cff-48bd-89fc-5ab83300a005" />
 
+
 ## Installation
 
-1. Download or clone this repo.
-2. Open Chrome (or any Chromium-based browser).
-3. Go to `chrome://extensions/` in your address bar.
-4. Enable **Developer mode**.
-5. Click **Load unpacked** and select the folder containing this project.
-6. That’s it! The extension is now active on LeetCode problem pages.
+1. Download the latest `.zip` file from the [Releases](https://github.com/sathwikhbhat/leet-quite/releases) section.  
+   *(Look for a file like `leetQuite-v1.1.0.zip`, not the source code files.)*
+2. Extract the `.zip` file to any folder on your computer.
+3. Open Chrome (or any Chromium-based browser).
+4. Navigate to `chrome://extensions/` in the address bar.
+5. Enable **Developer mode** using the toggle in the top-right corner.
+6. Click **Load unpacked** and select the folder where you extracted the extension.
+7. That’s it! LeetQuite is now active and will run automatically on LeetCode problem pages.
 
 You can also drag and drop the folder directly into the extensions page.
 
@@ -38,13 +51,15 @@ You can also drag and drop the folder directly into the extensions page.
 
 ## How It Works
 
-- Injects a script into LeetCode problem pages.
-- After every 200 milliseconds, it checks for:
-  - The **Solutions** and **Editorial** tabs and hides them.
-  - The **difficulty label** and replaces it with a motivational message.
-- If you visit a solutions/editorial page directly, it:
-  - Automatically redirects you to the problem description.
-  - Displays a short warning message.
+- Automatically runs on **LeetCode problem pages**.
+- Uses a **MutationObserver** to detect and hide distractions in real-time:
+  - Hides the **Solutions** and **Editorial** tabs if they appear.
+  - Replaces the **difficulty label** ("Easy", "Medium", "Hard") with a motivational message:  
+    *"Your Brain > The Solution Tab 🧠🔥"*
+- If the user tries to visit a **solutions** or **editorial** page directly:
+  - They are **redirected** back to the problem description.
+  - A short alert is shown: *"No peeking at solutions! Redirecting you..."*
+
 
 
 ## Permissions Required
