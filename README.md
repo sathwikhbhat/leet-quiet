@@ -16,8 +16,20 @@
 
 <br>
 
-**LeetQuite** is a lightweight browser extension for LeetCode that helps you stay focused by hiding spoilers like solutions and difficulty levels, encouraging you to think independently before seeking help.
+**LeetQuite** is a lightweight browser extension for LeetCode that helps you stay focused by hiding spoilers like
+solutions and difficulty levels, encouraging you to think independently before seeking help.
 
+## Why Use LeetQuite?
+
+Solving LeetCode problems effectively requires focus, discipline, and a clear head.
+But let's be real, the moment you see a big red **"Hard"** label, your brain starts negotiating an exit plan.
+
+LeetQuite removes distractions and spoiler temptations, helping you:
+
+- Avoid being intimidated by difficulty tag. Just read the problem and start thinking
+- Think independently before peeking at solutions
+- Build strong problem-solving muscles through effort, not shortcuts
+- Practice like you interview. No hints, spoilers, or psychological traps
 
 ## What does it do?
 
@@ -25,11 +37,8 @@
 - **Conceals the difficulty label** (Easy, Medium, Hard) and replaces it with a motivational message.
 - **Blocks direct access** to the solutions/editorials pages. If you try, it redirects you back with a warning.
 
-
-
 <img width="400" height="200" alt="Before" src="https://github.com/user-attachments/assets/3571a21d-c963-4ac0-86c4-b0f1bc548e04" />
 <img width="400" height="200" alt="After" src="https://github.com/user-attachments/assets/0d711d28-6cff-48bd-89fc-5ab83300a005" />
-
 
 ## Installation
 
@@ -48,7 +57,6 @@ You can also drag and drop the folder directly into the extensions page.
   <img src="https://github.com/user-attachments/assets/786c30d7-72db-4997-9b0a-376ae86890f3" alt="LeetQuite Installation" width="500"/>
 </p>
 
-
 ## How It Works
 
 - Automatically runs on **LeetCode problem pages**.
@@ -60,18 +68,20 @@ You can also drag and drop the folder directly into the extensions page.
   - They are **redirected** back to the problem description.
   - A short alert is shown: *"No peeking at solutions! Redirecting you..."*
 
-
-
 ## Permissions Required
 
 LeetQuite only needs access to LeetCode problem pages.  
 It **does not collect or transmit any data.**
-
 
 ## Contributing
 
 Got an idea? Found a bug? Want to improve the extension?  
 Feel free to open an issue or submit a pull request... All contributions are welcome!
 
+## Privacy Policy
+
+LeetQuite does not collect or transmit any personal data.
+You can read the full [Privacy Policy](https://gist.github.com/sathwikhbhat/19b14b3dab2cb7a78c5a550133b76ee0) for more
+details.
 
 <h3 align="center"><strong><em>Code with focus. Solve with clarity.</em></strong></h3>
