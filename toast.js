@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lastShownVersion !== CURRENT_VERSION) {
             showUpdateToast(
                 `LeetQuiet just got auto-updated to v${CURRENT_VERSION}`,
-                "https://github.com/sathwikhbhat/leet-quite/releases/tag/v1.2.0"
+                "https://github.com/sathwikhbhat/leet-quiet/releases/tag/v1.2.0"
             );
             chrome.storage.local.set({ lastShownVersion: CURRENT_VERSION });
         }
