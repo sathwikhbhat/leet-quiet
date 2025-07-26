@@ -3,13 +3,17 @@
   "name": "LeetQuiet: Code with Focus. Not with Noise.",
   "version": "1.2.0",
   "description": "Hide the Solutions Tab and the Question Difficulty level in LeetCode to avoid temptation and boost problem-solving discipline.",
+  "permissions": [
+    "storage"
+  ],
   "content_scripts": [
     {
       "matches": [
         "*://*.leetcode.com/*"
       ],
       "js": [
-        "content.js"
+        "content.js",
+        "toast.js"
       ],
       "run_at": "document_start"
     }
