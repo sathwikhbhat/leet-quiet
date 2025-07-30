@@ -2,14 +2,17 @@ function hideDistractions() {
   // Redirects from forbidden pages
   const path = window.location.pathname;
 
-  if ((path.includes("/solutions/") || path.includes("/editorial/")) && document.body.innerHTML.trim() !== roastHTML.trim()) {
+  if (
+    (path.includes("/solutions/") || path.includes("/editorial/")) &&
+    document.body.innerHTML.trim() !== roastHTML.trim()
+  ) {
     document.body.innerHTML = roastHTML;
   }
 
   // Remove solution/editorial tabs
   const tabsToRemove = [
     document.getElementById("solutions_tab")?.parentElement?.parentElement,
-    document.getElementById("editorial_tab")?.parentElement?.parentElement
+    document.getElementById("editorial_tab")?.parentElement?.parentElement,
   ];
   tabsToRemove.forEach(tab => {
     if (tab instanceof HTMLElement) {
@@ -19,78 +22,71 @@ function hideDistractions() {
   });
 
   // Replace difficulty labels with motivational quotes
-  document.querySelectorAll(".flex.gap-1").forEach(element => {
-    const text = element.textContent;
+  document
+    .querySelectorAll(".flex.gap-1, div.relative.inline-flex.items-center.justify-center.text-caption.px-2.py-1.gap-1.rounded-full")
+    .forEach((element) => {
+      const text = element.textContent;
 
-    if ((text.includes("Easy") || text.includes("Medium") || text.includes("Hard"))) {
-      console.log(`[INFO] Replacing difficulty label with: "Your Brain > The Solution Tab 🧠🔥"`);
-
-      element.innerHTML = `
-                                <div style="
-                                  display: inline-block;
-                                  padding: 4px 12px;
-                                  border-radius: 9999px;
-                                  font-weight: 600;
-                                  color: white;
-                                  font-size: 0.875rem;
-                                  text-align: center;
-                                  background: linear-gradient(to right, rgba(20, 184, 166, 0.9), rgba(99, 102, 241, 0.9));
-                                    backdrop-filter: blur(4px);
-                                ">
-                                  Your Brain > The Solution Tab 🧠🔥
-                                </div>
-                                `;
+      if (text.includes("Easy") || text.includes("Medium") || text.includes("Hard")){
+        console.log(`[INFO] Replacing difficulty label with: "Your Brain > The Solution Tab 🧠🔥"`);
+        element.innerHTML = quote;
     }
-  });
-
-  // Remove difficulty indicators
-  const difficultyIndicators = [
-    ...document.querySelectorAll('p.text-sd-hard, p.text-sd-easy, p.text-sd-medium'),
-    ...document.querySelectorAll('div.h-\\[5px\\].w-\\[5px\\].rounded-full'),
-    ...document.querySelectorAll('p.text-lc-green-60, p.text-lc-yellow-60, p.text-lc-red-60')
-  ];
-  if (difficultyIndicators.length > 0) {
-    difficultyIndicators.forEach(el => el.remove());
-    console.log("[INFO] Removed difficulty indicators.");
+    });
+    
+    // Remove difficulty indicators
+    const difficultyIndicators = [
+      ...document.querySelectorAll(
+        "p.text-sd-hard, p.text-sd-easy, p.text-sd-medium"
+      ),
+      ...document.querySelectorAll("div.h-\\[5px\\].w-\\[5px\\].rounded-full"),
+      ...document.querySelectorAll("p.text-lc-green-60, p.text-lc-yellow-60, p.text-lc-red-60"),
+    ];
+    if (difficultyIndicators.length > 0) {
+      difficultyIndicators.forEach((el) => el.remove());
+      console.log("[INFO] Removed difficulty indicators.");
+    }
+    
+    // Remove "Difficulty" blocks from Sorting
+    const targets = Array.from(document.querySelectorAll("div")).filter(
+      (div) => div.textContent.trim() === "Difficulty"
+    );
+    
+    targets.forEach((d) => {
+      const clickableBlock = d.closest(
+        ".flex.cursor-pointer.items-center.justify-between"
+      );
+      const outerBlock = clickableBlock?.parentElement;
+      if (outerBlock) outerBlock.remove();
+    });
+    
+    // Remove "Difficulty" Option from Filtering
+    document
+    .querySelectorAll("div.flex.w-full.items-center.gap-2.pl-1")
+    .forEach((div) => {
+      if (div.innerText.includes("Difficulty")) {
+        div.remove();
+      }
+    });
   }
-
-  // Remove "Difficulty" blocks from Sorting
-  const targets = Array.from(document.querySelectorAll("div"))
-    .filter(div => div.textContent.trim() === "Difficulty");
-
-  targets.forEach(d => {
-    const clickableBlock = d.closest(".flex.cursor-pointer.items-center.justify-between");
-    const outerBlock = clickableBlock?.parentElement;
-    if (outerBlock) outerBlock.remove();
+  
+  // Main
+  console.log("[INFO] LeetQuiet loaded. Starting distraction removal...");
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    hideDistractions();
+    
+    // Watch for SPA navigation changes
+    const observer = new MutationObserver(() => {
+      try {
+        hideDistractions();
+      } catch (err) {
+        console.error("[ERROR] MutationObserver error:", err);
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   });
-
-  // Remove "Difficulty" Option from Filtering
-  document.querySelectorAll('div.flex.w-full.items-center.gap-2.pl-1').forEach(div => {
-    if (div.innerText.includes("Difficulty")) {
-      div.remove();
-    }
-  });
-
-}
-
-// Main
-console.log("[INFO] LeetQuiet loaded. Starting distraction removal...");
-
-document.addEventListener('DOMContentLoaded', () => {
-  hideDistractions();
-
-  // Watch for SPA navigation changes
-  const observer = new MutationObserver(() => {
-    try {
-      hideDistractions();
-    } catch (err) {
-      console.error("[ERROR] MutationObserver error:", err);
-    }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
-});
-
-// Roast HTML content
+  
+  // Roast HTML content
 const roastHTML = `
   <style>
     .roast-container {
@@ -144,17 +140,34 @@ const roastHTML = `
       box-shadow: 0 0 15px rgba(20, 184, 166, 0.6);
     }
   </style>
-
+                
   <div class="roast-container">
-    <div class="roast-content">
-      <div class="roast-badge">Access Denied 😏</div>
-      <h1 class="roast-heading">Trying to be smart, aah!?</h1>
-      <p class="roast-text">
-        Looks like you're trying to peek at the solutions... but we both know growth comes from the grind 🧠💪
-      </p>
-      <button onclick="window.history.back()" class="roast-button">
-        Take me back to the problem!
-      </button>
-    </div>
+      <div class="roast-content">
+        <div class="roast-badge">Access Denied 😏</div>
+        <h1 class="roast-heading">Trying to be smart, aah!?</h1>
+        <p class="roast-text">
+          Looks like you're trying to peek at the solutions... but we both know growth comes from the grind 🧠💪
+        </p>
+        <button onclick="window.history.back()" class="roast-button">
+          Take me back to the problem!
+        </button>
+      </div>
   </div>
+`;
+
+// Display Quote
+const quote = `
+<div style="
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: white;
+  font-size: 0.875rem;
+  text-align: center;
+  background: linear-gradient(to right, rgba(20, 184, 166, 0.9), rgba(99, 102, 241, 0.9));
+  backdrop-filter: blur(4px);
+">
+  Your Brain > The Solution Tab 🧠🔥
+</div>
 `;
