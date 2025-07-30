@@ -6,21 +6,25 @@
 
 
 <p align="center">
-  <a href="https://chrome.google.com/webstore/detail/fmmibmdiheablcolcljnihbdaliljfgf" target="_blank">
-    <img src="https://developer.chrome.com/static/docs/webstore/branding/image/HRs9MPufa1J1h5glNhut.png" alt="Get it on Chrome Web Store" height="80"/>
+  <a rel="noreferrer noopener" href="https://chrome.google.com/webstore/detail/fmmibmdiheablcolcljnihbdaliljfgf/" target="_blank">
+    <img alt="Chrome Web Store" src="https://img.shields.io/badge/Chrome-4285f4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white">
+  </a>
+  <a rel="noreferrer noopener" href="https://addons.mozilla.org/firefox/addon/leetquiet/" target="_blank">
+    <img alt="Firefox Add-ons" src="https://img.shields.io/badge/Firefox-ff7139.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white">
   </a>
 </p>
 
 
 <p align="center">
   <a href="https://github.com/sathwikhbhat/leet-quiet/releases">
-    <img src="https://img.shields.io/badge/version-1.2.0-blue.svg" alt="Version Badge"/>
+    <img src="https://img.shields.io/github/v/release/sathwikhbhat/leet-quiet?style=for-the-badge&color=blue" alt="Latest Release"/>
   </a>
   &nbsp;&nbsp;&nbsp;
   <a href="https://github.com/sathwikhbhat/leet-quiet/issues">
-    <img src="https://img.shields.io/github/issues/sathwikhbhat/leet-quite" alt="GitHub Issues Badge"/>
+    <img src="https://img.shields.io/github/issues/sathwikhbhat/leet-quiet?style=for-the-badge&color=orange" alt="GitHub Issues"/>
   </a>
 </p>
+
 
 **LeetQuiet** is a lightweight browser extension for LeetCode that helps you stay focused by hiding spoilers like  
 **solutions** and **difficulty levels**, encouraging you to think independently before seeking help.
