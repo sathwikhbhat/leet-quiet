@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Version management for update notifications
-    // Version: 1.2.0
-    const CURRENT_VERSION = "1.2.0";
+    // Version: 1.3.0
+    const CURRENT_VERSION = "1.3.0";
 
     // Fetch last shown version from storage
     const storage = chrome?.storage || browser?.storage;
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lastShownVersion !== CURRENT_VERSION) {
             showUpdateToast(
                 `LeetQuiet just got auto-updated to v${CURRENT_VERSION}`,
-                "https://github.com/sathwikhbhat/leet-quiet/releases/tag/v1.2.0"
+                "https://github.com/sathwikhbhat/leet-quiet/releases/tag/v1.3.0"
             );
             chrome.storage.local.set({ lastShownVersion: CURRENT_VERSION });
         }
