@@ -1,11 +1,17 @@
 function hideDistractions() {
-  // Redirects from forbidden pages
+
+  const EXCLUDED_PATHS = ["/progress","/progress/", "/discuss", "/discuss/"];
+  const EXCLUDED_PREFIXES = ["/u/"];
+
   const path = window.location.pathname;
 
-  if (
-    (path.includes("/solutions/") || path.includes("/editorial/")) &&
-    document.body.innerHTML.trim() !== roastHTML.trim()
-  ) {
+  // Check if unwanted paths are excluded
+  if (EXCLUDED_PATHS.includes(path) || EXCLUDED_PREFIXES.some(prefix => path.startsWith(prefix))) {
+    console.log("[INFO] LeetQuiet is skipping this page:", path);
+    return;
+  }
+
+  if ((path.includes("/solutions/") || path.includes("/editorial/")) && document.body.innerHTML.trim() !== roastHTML.trim()) {
     document.body.innerHTML = roastHTML;
   }
 
@@ -23,21 +29,32 @@ function hideDistractions() {
 
   // Replace difficulty labels with motivational quotes
   document
-    .querySelectorAll(".flex.gap-1, div.relative.inline-flex.items-center.justify-center.text-caption.px-2.py-1.gap-1.rounded-full")
-    .forEach((element) => {
-      const text = element.textContent;
+  .querySelectorAll(".flex.gap-1, div.relative.inline-flex.items-center.justify-center.text-caption.px-2.py-1.gap-1.rounded-full")
+  .forEach((element) => {
+    const text = element.textContent;
 
-      if (text.includes("Easy") || text.includes("Medium") || text.includes("Hard")){
-        console.log(`[INFO] Replacing difficulty label with: "Your Brain > The Solution Tab 🧠🔥"`);
+    if (text.includes("Easy") || text.includes("Medium") || text.includes("Hard")) {
+      element.style.visibility = "hidden"; 
+      const isFlexGap = element.classList.contains("flex") && element.classList.contains("gap-1");
+
+      if (isFlexGap) {
+        console.log(`[INFO] Replacing difficulty label on .flex.gap-1 element`);
         element.innerHTML = quote;
+        element.style.visibility = "visible";
+      } else {
+        const parent = element.parentElement;
+        if (parent) {
+          parent.innerHTML = quote;
+          parent.style.visibility = "visible";
+          console.log(`[INFO] Replaced parent of non-.flex.gap-1 element`);
+        }
+      }
     }
-    });
+  });
     
     // Remove difficulty indicators
     const difficultyIndicators = [
-      ...document.querySelectorAll(
-        "p.text-sd-hard, p.text-sd-easy, p.text-sd-medium"
-      ),
+      ...document.querySelectorAll("p.text-sd-hard, p.text-sd-easy, p.text-sd-medium"),
       ...document.querySelectorAll("div.h-\\[5px\\].w-\\[5px\\].rounded-full"),
       ...document.querySelectorAll("p.text-lc-green-60, p.text-lc-yellow-60, p.text-lc-red-60"),
     ];
@@ -47,16 +64,14 @@ function hideDistractions() {
     }
     
     // Remove "Difficulty" blocks from Sorting
-    const targets = Array.from(document.querySelectorAll("div")).filter(
-      (div) => div.textContent.trim() === "Difficulty"
-    );
+    const targets = Array.from(document.querySelectorAll("div")).filter((div) => div.textContent.trim() === "Difficulty");
     
     targets.forEach((d) => {
-      const clickableBlock = d.closest(
-        ".flex.cursor-pointer.items-center.justify-between"
-      );
+      const clickableBlock = d.closest(".flex.cursor-pointer.items-center.justify-between");
       const outerBlock = clickableBlock?.parentElement;
-      if (outerBlock) outerBlock.remove();
+      if (outerBlock) {
+        outerBlock.remove();
+      }
     });
     
     // Remove "Difficulty" Option from Filtering
