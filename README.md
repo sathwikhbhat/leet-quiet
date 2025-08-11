@@ -26,6 +26,13 @@
 </p>
 
 
+<p align="center">
+  <a href="https://peerlist.io/sathwikhbhat/project/leetquiet" target="_blank" rel="noreferrer">
+		<img src="https://github.com/user-attachments/assets/36232d80-8c05-4dc9-82a5-012b4bf86428" alt="LeetQuiet" style="width: auto; height: 72px;"/>
+  </a>
+</p>
+
+
 **LeetQuiet** is a lightweight browser extension for LeetCode that helps you stay focused by hiding spoilers like  
 **solutions** and **difficulty levels**, encouraging you to think independently before seeking help.
 
