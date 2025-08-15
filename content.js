@@ -12,6 +12,7 @@ function hideDistractions() {
   replaceDifficultyLabels();
   removeDifficultyIndicators();
   removeDifficultyFilters();
+  removeMetaSection();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

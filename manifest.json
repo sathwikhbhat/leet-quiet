@@ -21,7 +21,8 @@
         "/content/removeDifficultyFilters.js",
         "/content/observer.js",
         "/content/messages.js",
-        "/content/checkPaths.js"
+        "/content/checkPaths.js",
+        "/content/removeMetaSection.js"
       ],
       "run_at": "document_start"
     }
