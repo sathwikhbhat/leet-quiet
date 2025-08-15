@@ -12,8 +12,16 @@
         "*://*.leetcode.com/*"
       ],
       "js": [
+        "toast.js",
         "content.js",
-        "toast.js"
+        "/content/blockSolutions.js",
+        "/content/removeTabs.js",
+        "/content/replaceDifficultyLabels.js",
+        "/content/removeDifficultyIndicators.js",
+        "/content/removeDifficultyFilters.js",
+        "/content/observer.js",
+        "/content/messages.js",
+        "/content/checkPaths.js"
       ],
       "run_at": "document_start"
     }

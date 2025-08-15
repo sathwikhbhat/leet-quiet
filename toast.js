@@ -1,43 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Version management for update notifications
-    // Version: 1.3.0
-    const CURRENT_VERSION = "1.3.0";
+  // Version management for update notifications
+  // Version: 1.3.0
+  const CURRENT_VERSION = "1.3.0";
 
-    // Fetch last shown version from storage
-    const storage = chrome?.storage || browser?.storage;
-    storage.local.get("lastShownVersion", ({ lastShownVersion }) => {
-        if (lastShownVersion !== CURRENT_VERSION) {
-            showUpdateToast(
-                `LeetQuiet just got auto-updated to v${CURRENT_VERSION}`,
-                "https://github.com/sathwikhbhat/leet-quiet/releases/tag/v1.3.0"
-            );
-            chrome.storage.local.set({ lastShownVersion: CURRENT_VERSION });
-        }
-    });
+  // Fetch last shown version from storage
+  const storage = chrome?.storage || browser?.storage;
+  storage.local.get("lastShownVersion", ({ lastShownVersion }) => {
+    if (lastShownVersion !== CURRENT_VERSION) {
+      showUpdateToast(
+        `LeetQuiet just got auto-updated to v${CURRENT_VERSION}`,
+        "https://github.com/sathwikhbhat/leet-quiet/releases/tag/v" + CURRENT_VERSION
+      );
+      chrome.storage.local.set({ lastShownVersion: CURRENT_VERSION });
+    }
+  });
 
-    // Function to display update toast
-    function showUpdateToast(message, link) {
-        const toast = document.createElement("div");
-        toast.innerHTML = `
+  // Function to display update toast
+  function showUpdateToast(message, link) {
+    const toast = document.createElement("div");
+    toast.innerHTML = `
     <div class="toast-box" title="Click to view full changelog">
-      <div class="toast-msg">🔥 ${message}</div>
+      <div class="toast-msg">${message} 🥳</div>
       <p class="toast-link">Click to view the full changelog</p>
     </div>
   `;
 
-        // On click, open the changelog in a new tab
-        toast.onclick = () => window.open(link, "_blank");
-        document.body.appendChild(toast);
+    // On click, open the changelog in a new tab
+    toast.onclick = () => window.open(link, "_blank");
+    document.body.appendChild(toast);
 
-        // Automatically remove toast after 10 seconds
-        setTimeout(() => {
-            toast.style.opacity = "0";
-            setTimeout(() => toast.remove(), 300);
-        }, 10000);
-    }
+    // Automatically remove toast after 10 seconds
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      setTimeout(() => toast.remove(), 300);
+    }, 10000);
+  }
 
-    const style = document.createElement('style');
-    style.innerHTML = `
+  const style = document.createElement('style');
+  style.innerHTML = `
   .toast-box {
     position: fixed;
     bottom: 30px;
@@ -82,6 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
       margin-top: 8px;
     }`;
 
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 
 });
