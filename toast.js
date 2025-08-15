@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Version management for update notifications
-  // Version: 1.3.0
-  const CURRENT_VERSION = "1.3.0";
+  // Version: 1.4.0
+  const CURRENT_VERSION = "1.4.0";
 
   // Fetch last shown version from storage
   const storage = chrome?.storage || browser?.storage;
