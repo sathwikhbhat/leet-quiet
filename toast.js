@@ -5,13 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fetch last shown version from storage
   const storage = chrome?.storage || browser?.storage;
+  if (!storage) {
+    console.error("[LeetQuiet] Storage API not available");
+    return;
+  }
+  
   storage.local.get("lastShownVersion", ({ lastShownVersion }) => {
     if (lastShownVersion !== CURRENT_VERSION) {
       showUpdateToast(
         `LeetQuiet just got auto-updated to v${CURRENT_VERSION}`,
         "https://github.com/sathwikhbhat/leet-quiet/releases/tag/v" + CURRENT_VERSION
       );
-      chrome.storage.local.set({ lastShownVersion: CURRENT_VERSION });
+      storage.local.set({ lastShownVersion: CURRENT_VERSION });
     }
   });
 
