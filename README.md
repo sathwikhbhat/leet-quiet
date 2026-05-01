@@ -7,13 +7,13 @@
 
 <p align="center">
   <a rel="noreferrer noopener" href="https://chrome.google.com/webstore/detail/fmmibmdiheablcolcljnihbdaliljfgf/" target="_blank">
-    <img alt="Chrome Web Store" src="https://img.shields.io/badge/Chrome-4285f4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white">
+    <img alt="Install from Chrome Web Store" src="https://github.com/user-attachments/assets/456611dd-7f28-4a1b-96cd-f56b89c35341" width="340">
   </a>
+  &nbsp;&nbsp;
   <a rel="noreferrer noopener" href="https://addons.mozilla.org/firefox/addon/leetquiet/" target="_blank">
-    <img alt="Firefox Add-ons" src="https://img.shields.io/badge/Firefox-ff7139.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white">
+    <img alt="Install from Firefox Add-ons" src="https://github.com/user-attachments/assets/77ebfd16-3a19-444e-a9f0-4cf04b412252" width="340">
   </a>
 </p>
-
 
 <p align="center">
   <a href="https://github.com/sathwikhbhat/leet-quiet/releases">
